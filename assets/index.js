@@ -31,14 +31,14 @@ function getRandomCard() {
   }
 }
 
-function startGame() {
+startBtn.addEventListener("click", function () {
   let firstCard = getRandomCard();
   let secondCard = getRandomCard();
   cards = [firstCard, secondCard];
   sum = firstCard + secondCard;
   isAlive = true;
   renderGame();
-}
+});
 
 function renderGame() {
   cardsEl.textContent = "Cards: ";
@@ -62,14 +62,11 @@ function renderGame() {
   messageEl.textContent = message;
 }
 
-function newCard() {
+newCardBtn.addEventListener("click", function () {
   if (isAlive === true && hasBlackJack === false) {
     let card = getRandomCard();
     sum += card;
     cards.push(card);
     renderGame();
   }
-}
-
-startBtn.addEventListener("click", startGame);
-newCardBtn.addEventListener("click", newCard);
+});
